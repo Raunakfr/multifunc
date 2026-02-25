@@ -1,0 +1,39 @@
+e=open("syllabus.txt", "r+")
+f=e.read()
+g=f.replace("\n", "   ")
+m=g.split("|||")
+a=["P&S", "C++", "DS", "Value Education", "Chemistry", "Entrepreneurship", "Engg Graphs", "Logical Designing"]
+c=1
+for i in a:
+    print(str(c)+".", i)
+    c=c+1
+b=int(input("Which subject do you want to study as of right now ?: "))
+if b==1:
+    k=[]
+    unitcount = 0
+    n=m[0].split(",")
+    print(n[0], "Syllabus: \n")
+    for j in range (2,len(n)):
+        if n[j]!="Unit":
+            k.append(n[j])
+        else:
+            unitcount+=1
+            continue
+    for l in range (1, len(k)):
+        print(l,". ", n[l])
+elif b==2:
+    print("C++.Syllabus")
+elif b==3:
+    print("DS.Syllabus")
+elif b==4:
+    print("Value Education.Syllabus")
+elif b==5:
+    print("Chemistry.Syllabus")
+elif b==6:
+    print("Entrepreneurship.Syllabus")
+elif b==7:
+    print("Engg. Graphics.Syllabus")
+elif b==8:
+    print("Logical Designing.Syllabus")
+else:
+    print("Invalid input!")
