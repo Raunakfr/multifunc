@@ -1,21 +1,6 @@
 import datetime
+import threading
 import psutil
-def windowtracker():
-    ids = psutil.pids()
-    for ida in ids:
-        if(str(psutil.Process(ida)).split(",")[1][7:len(str(psutil.Process(ida)).split(",")[1])-1]) == "WinStore.App.exe":
-            killed = psutil.Process(ida)
-            killed.terminate()
-e=open("syllabus.txt", "r+")
-f=e.read()
-g=f.replace("\n", "   ")
-m=g.split("|||")
-nga = True
-a=["P&S", "C++", "DS", "Value Education", "Chemistry", "Entrepreneurship", "Engg Graphs", "Logical Designing"]
-c=1
-for i in a:
-    print(str(c)+".", i)
-    c=c+1
 timereal = datetime.datetime.now().time()
 timefake = str(timereal).split(":")
 if 5<=int(timefake[0])<12:
@@ -26,6 +11,28 @@ elif 17<=int(timefake[0])<22:
     print("Good evening user!")
 else:
     print("Hey User! It's kinda late, but alright if you want to study!!")
+blockedapps=["VALORANT-Win64-Shipping.exe", "Notepad.exe"]
+def windowtracker():
+    chiggi  = True
+    while True:
+        ids = psutil.pids()
+        for ida in ids:
+            try:
+                if(str(psutil.Process(ida)).split(",")[1][7:len(str(psutil.Process(ida)).split(",")[1])-1]) in blockedapps:
+                    killed = psutil.Process(ida)
+                    killed.terminate()
+            except:
+                print("",end="")
+e=open("syllabus.txt", "r+")
+f=e.read()
+g=f.replace("\n", "   ")
+m=g.split("|||")
+nga = True
+a=["P&S", "C++", "DS", "Value Education", "Chemistry", "Entrepreneurship", "Engg Graphs", "Logical Designing"]
+c=1
+for i in a:
+    print(str(c)+".", i)
+    c=c+1
 if nga == True:
     b=int(input("Which subject do you want to study as of right now ?: "))
     if b==1:
@@ -73,16 +80,21 @@ if nga == True:
                 print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-3)+"): ",end="")
                 topname=int(input())
                 if uwisetopics[bb-1][(topname+1)] in uwisetopics[bb-1][2:len(uwisetopics[bb-1])]:
-                    print("You are studying "+uwisetopics[bb-1][(topname+1)]+" right now: ")        
+                    print("You are studying"+uwisetopics[bb-1][(topname+1)]+" right now: ")        
                     print("Starting the timer!")
+                    print("Starting the app monitor!")
                     print("You started studying at: ",end="")
                     if int(timefake[0])>=12:
+
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
                     else:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
-                    print("Please press the return(enter) key as soon as you want to end your current study session, along with the timer!")
-
-                    timerstate = input()
+                    tracker = threading.Thread(target=windowtracker)
+                    tracker.start()
+                    print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
+                    aaa = input("Waiting for user input: ")
+                    if aaa:
+                        chiggi = False
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
                     print("You ended your study session at: ",end="")
@@ -144,8 +156,12 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
                     else:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
-                    print("Please press the return(enter) key as soon as you want to end your current study session, along with the timer!")
-
+                    tracker = threading.Thread(target=windowtracker)
+                    tracker.start()
+                    print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
+                    aaa = input("Waiting for user input: ")
+                    if aaa:
+                        chiggi = False
                     timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
@@ -208,8 +224,12 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
                     else:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
-                    print("Please press the return(enter) key as soon as you want to end your current study session, along with the timer!")
-
+                    tracker = threading.Thread(target=windowtracker)
+                    tracker.start()
+                    print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
+                    aaa = input("Waiting for user input: ")
+                    if aaa:
+                        chiggi = False
                     timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
@@ -272,8 +292,12 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
                     else:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
-                    print("Please press the return(enter) key as soon as you want to end your current study session, along with the timer!")
-
+                    tracker = threading.Thread(target=windowtracker)
+                    tracker.start()
+                    print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
+                    aaa = input("Waiting for user input: ")
+                    if aaa:
+                        chiggi = False
                     timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
@@ -336,8 +360,12 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
                     else:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
-                    print("Please press the return(enter) key as soon as you want to end your current study session, along with the timer!")
-
+                    tracker = threading.Thread(target=windowtracker)
+                    tracker.start()
+                    print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
+                    aaa = input("Waiting for user input: ")
+                    if aaa:
+                        chiggi = False
                     timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
@@ -400,8 +428,12 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
                     else:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
-                    print("Please press the return(enter) key as soon as you want to end your current study session, along with the timer!")
-
+                    tracker = threading.Thread(target=windowtracker)
+                    tracker.start()
+                    print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
+                    aaa = input("Waiting for user input: ")
+                    if aaa:
+                        chiggi = False
                     timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
@@ -464,8 +496,12 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
                     else:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
-                    print("Please press the return(enter) key as soon as you want to end your current study session, along with the timer!")
-
+                    tracker = threading.Thread(target=windowtracker)
+                    tracker.start()
+                    print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
+                    aaa = input("Waiting for user input: ")
+                    if aaa:
+                        chiggi = False
                     timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
@@ -530,9 +566,12 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
                     else:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
-                    print("Please press the return(enter) key as soon as you want to end your current study session, along with the timer!")
-
-                    timerstate = input()
+                    tracker = threading.Thread(target=windowtracker)
+                    tracker.start()
+                    print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
+                    aaa = input("Waiting for user input: ")
+                    if aaa:
+                        chiggi = False
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
                     print("You ended your study session at: ",end="")
