@@ -126,7 +126,7 @@ if nga == True:
         unitindexes=[]
         unitcounti = 0
         n=m[b-1].split(",")
-        print(n[0], "Syllabus:")
+        print(n[b-1], "Syllabus:")
         for j in range (1 ,len(n)):
             if n[j][1]!="U":
                 if n[j][2]!="n":
@@ -154,16 +154,22 @@ if nga == True:
             print(ll+1,". ",kk[ll],": ",unitname[ll])
         print("Please enter your input(1-"+str(len(kk))+"): ",end="")
         bb=int(input())
+        uwisetopics[bb-1].append("fix")
         for iii in range (1,len(kk)+1):
             if bb==iii:
                 print("The topics for", unitname[bb-1], "are:")
-                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])+1):
+                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])):
                     print(str(tt)+". ",uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1][tt-1])
-                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-3)+"): ",end="")
+                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-4)+"): ",end="")
                 topname=int(input())
                 if uwisetopics[bb-1][(topname+1)] in uwisetopics[bb-1][2:len(uwisetopics[bb-1])]:
                     print("You are studying "+uwisetopics[bb-1][(topname+1)]+" right now: ")        
                     print("Starting the timer!")
+                    time.sleep(1)
+                    print("Starting the app monitor!")
+                    time.sleep(1)
+                    print("Starting the tab monitor!")
+                    time.sleep(1)
                     print("You started studying at: ",end="")
                     if int(timefake[0])>=12:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
@@ -171,11 +177,15 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
                     tracker = threading.Thread(target=windowtracker)
                     tracker.start()
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("True")
+                    statechecker.close()
                     print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
                     aaa = input("Waiting for user input: ")
-                    if aaa:
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("False")
+                    if not aaa:
                         chiggi = False
-                    timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
                     print("You ended your study session at: ",end="")
@@ -194,7 +204,7 @@ if nga == True:
         unitindexes=[]
         unitcounti = 0
         n=m[b-1].split(",")
-        print(n[0], "Syllabus:")
+        print(n[b-1], "Syllabus:")
         for j in range (1 ,len(n)):
             if n[j][1]!="U":
                 if n[j][2]!="n":
@@ -222,16 +232,22 @@ if nga == True:
             print(ll+1,". ",kk[ll],": ",unitname[ll])
         print("Please enter your input(1-"+str(len(kk))+"): ",end="")
         bb=int(input())
-        for iii in range (1,len(kk)):
+        uwisetopics[bb-1].append("fix")
+        for iii in range (1,len(kk)+1):
             if bb==iii:
                 print("The topics for", unitname[bb-1], "are:")
-                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])+1):
+                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])):
                     print(str(tt)+". ",uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1][tt-1])
-                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-3)+"): ",end="")
+                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-4)+"): ",end="")
                 topname=int(input())
                 if uwisetopics[bb-1][(topname+1)] in uwisetopics[bb-1][2:len(uwisetopics[bb-1])]:
                     print("You are studying "+uwisetopics[bb-1][(topname+1)]+" right now: ")        
                     print("Starting the timer!")
+                    time.sleep(1)
+                    print("Starting the app monitor!")
+                    time.sleep(1)
+                    print("Starting the tab monitor!")
+                    time.sleep(1)
                     print("You started studying at: ",end="")
                     if int(timefake[0])>=12:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
@@ -239,11 +255,15 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
                     tracker = threading.Thread(target=windowtracker)
                     tracker.start()
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("True")
+                    statechecker.close()
                     print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
                     aaa = input("Waiting for user input: ")
-                    if aaa:
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("False")
+                    if not aaa:
                         chiggi = False
-                    timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
                     print("You ended your study session at: ",end="")
@@ -262,7 +282,7 @@ if nga == True:
         unitindexes=[]
         unitcounti = 0
         n=m[b-1].split(",")
-        print(n[0], "Syllabus:")
+        print(n[b-1], "Syllabus:")
         for j in range (1 ,len(n)):
             if n[j][1]!="U":
                 if n[j][2]!="n":
@@ -290,16 +310,22 @@ if nga == True:
             print(ll+1,". ",kk[ll],": ",unitname[ll])
         print("Please enter your input(1-"+str(len(kk))+"): ",end="")
         bb=int(input())
-        for iii in range (1,len(kk)):
+        uwisetopics[bb-1].append("fix")
+        for iii in range (1,len(kk)+1):
             if bb==iii:
                 print("The topics for", unitname[bb-1], "are:")
-                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])+1):
+                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])):
                     print(str(tt)+". ",uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1][tt-1])
-                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-3)+"): ",end="")
+                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-4)+"): ",end="")
                 topname=int(input())
                 if uwisetopics[bb-1][(topname+1)] in uwisetopics[bb-1][2:len(uwisetopics[bb-1])]:
                     print("You are studying "+uwisetopics[bb-1][(topname+1)]+" right now: ")        
                     print("Starting the timer!")
+                    time.sleep(1)
+                    print("Starting the app monitor!")
+                    time.sleep(1)
+                    print("Starting the tab monitor!")
+                    time.sleep(1)
                     print("You started studying at: ",end="")
                     if int(timefake[0])>=12:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
@@ -307,11 +333,15 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
                     tracker = threading.Thread(target=windowtracker)
                     tracker.start()
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("True")
+                    statechecker.close()
                     print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
                     aaa = input("Waiting for user input: ")
-                    if aaa:
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("False")
+                    if not aaa:
                         chiggi = False
-                    timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
                     print("You ended your study session at: ",end="")
@@ -330,7 +360,7 @@ if nga == True:
         unitindexes=[]
         unitcounti = 0
         n=m[b-1].split(",")
-        print(n[0], "Syllabus:")
+        print(n[b-1], "Syllabus:")
         for j in range (1 ,len(n)):
             if n[j][1]!="U":
                 if n[j][2]!="n":
@@ -358,16 +388,22 @@ if nga == True:
             print(ll+1,". ",kk[ll],": ",unitname[ll])
         print("Please enter your input(1-"+str(len(kk))+"): ",end="")
         bb=int(input())
-        for iii in range (1,len(kk)):
+        uwisetopics[bb-1].append("fix")
+        for iii in range (1,len(kk)+1):
             if bb==iii:
                 print("The topics for", unitname[bb-1], "are:")
-                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])+1):
+                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])):
                     print(str(tt)+". ",uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1][tt-1])
-                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-3)+"): ",end="")
+                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-4)+"): ",end="")
                 topname=int(input())
                 if uwisetopics[bb-1][(topname+1)] in uwisetopics[bb-1][2:len(uwisetopics[bb-1])]:
                     print("You are studying "+uwisetopics[bb-1][(topname+1)]+" right now: ")        
                     print("Starting the timer!")
+                    time.sleep(1)
+                    print("Starting the app monitor!")
+                    time.sleep(1)
+                    print("Starting the tab monitor!")
+                    time.sleep(1)
                     print("You started studying at: ",end="")
                     if int(timefake[0])>=12:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
@@ -375,11 +411,15 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
                     tracker = threading.Thread(target=windowtracker)
                     tracker.start()
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("True")
+                    statechecker.close()
                     print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
                     aaa = input("Waiting for user input: ")
-                    if aaa:
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("False")
+                    if not aaa:
                         chiggi = False
-                    timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
                     print("You ended your study session at: ",end="")
@@ -390,7 +430,7 @@ if nga == True:
                     print("Timer ended!")        
                     print("You studied for a total of: "+ str(abs(int(timefake1[0])-int(timefake[0])))+" hours "+str(abs(int(timefake1[1])-int(timefake[1])))+" minutes and "+str(abs(int(timefake1[2].split(".")[0])-int(timefake[2].split(".")[0])))+" seconds")
     elif b==6:
-        kk=0
+       kk=0
         k=[]
         kk=[]
         unitname=[]
@@ -398,7 +438,7 @@ if nga == True:
         unitindexes=[]
         unitcounti = 0
         n=m[b-1].split(",")
-        print(n[0], "Syllabus:")
+        print(n[b-1], "Syllabus:")
         for j in range (1 ,len(n)):
             if n[j][1]!="U":
                 if n[j][2]!="n":
@@ -426,16 +466,22 @@ if nga == True:
             print(ll+1,". ",kk[ll],": ",unitname[ll])
         print("Please enter your input(1-"+str(len(kk))+"): ",end="")
         bb=int(input())
-        for iii in range (1,len(kk)):
+        uwisetopics[bb-1].append("fix")
+        for iii in range (1,len(kk)+1):
             if bb==iii:
                 print("The topics for", unitname[bb-1], "are:")
-                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])+1):
+                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])):
                     print(str(tt)+". ",uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1][tt-1])
-                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-3)+"): ",end="")
+                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-4)+"): ",end="")
                 topname=int(input())
                 if uwisetopics[bb-1][(topname+1)] in uwisetopics[bb-1][2:len(uwisetopics[bb-1])]:
                     print("You are studying "+uwisetopics[bb-1][(topname+1)]+" right now: ")        
                     print("Starting the timer!")
+                    time.sleep(1)
+                    print("Starting the app monitor!")
+                    time.sleep(1)
+                    print("Starting the tab monitor!")
+                    time.sleep(1)
                     print("You started studying at: ",end="")
                     if int(timefake[0])>=12:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
@@ -443,11 +489,15 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
                     tracker = threading.Thread(target=windowtracker)
                     tracker.start()
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("True")
+                    statechecker.close()
                     print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
                     aaa = input("Waiting for user input: ")
-                    if aaa:
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("False")
+                    if not aaa:
                         chiggi = False
-                    timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
                     print("You ended your study session at: ",end="")
@@ -466,7 +516,7 @@ if nga == True:
         unitindexes=[]
         unitcounti = 0
         n=m[b-1].split(",")
-        print(n[0], "Syllabus:")
+        print(n[b-1], "Syllabus:")
         for j in range (1 ,len(n)):
             if n[j][1]!="U":
                 if n[j][2]!="n":
@@ -494,16 +544,22 @@ if nga == True:
             print(ll+1,". ",kk[ll],": ",unitname[ll])
         print("Please enter your input(1-"+str(len(kk))+"): ",end="")
         bb=int(input())
-        for iii in range (1,len(kk)):
+        uwisetopics[bb-1].append("fix")
+        for iii in range (1,len(kk)+1):
             if bb==iii:
                 print("The topics for", unitname[bb-1], "are:")
-                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])+1):
+                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])):
                     print(str(tt)+". ",uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1][tt-1])
-                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-3)+"): ",end="")
+                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-4)+"): ",end="")
                 topname=int(input())
                 if uwisetopics[bb-1][(topname+1)] in uwisetopics[bb-1][2:len(uwisetopics[bb-1])]:
                     print("You are studying "+uwisetopics[bb-1][(topname+1)]+" right now: ")        
                     print("Starting the timer!")
+                    time.sleep(1)
+                    print("Starting the app monitor!")
+                    time.sleep(1)
+                    print("Starting the tab monitor!")
+                    time.sleep(1)
                     print("You started studying at: ",end="")
                     if int(timefake[0])>=12:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
@@ -511,11 +567,15 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
                     tracker = threading.Thread(target=windowtracker)
                     tracker.start()
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("True")
+                    statechecker.close()
                     print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
                     aaa = input("Waiting for user input: ")
-                    if aaa:
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("False")
+                    if not aaa:
                         chiggi = False
-                    timerstate = input()
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
                     print("You ended your study session at: ",end="")
@@ -525,8 +585,7 @@ if nga == True:
                         print(timefake1[0]+":"+timefake1[1]+":"+timefake1[2].split(".")[0]+" AM")
                     print("Timer ended!")        
                     print("You studied for a total of: "+ str(abs(int(timefake1[0])-int(timefake[0])))+" hours "+str(abs(int(timefake1[1])-int(timefake[1])))+" minutes and "+str(abs(int(timefake1[2].split(".")[0])-int(timefake[2].split(".")[0])))+" seconds")
-    elif b==8:
-        kk=0
+    kk=0
         k=[]
         kk=[]
         unitname=[]
@@ -534,7 +593,7 @@ if nga == True:
         unitindexes=[]
         unitcounti = 0
         n=m[b-1].split(",")
-        print(n[0], "Syllabus:")
+        print(n[b-1], "Syllabus:")
         for j in range (1 ,len(n)):
             if n[j][1]!="U":
                 if n[j][2]!="n":
@@ -562,18 +621,22 @@ if nga == True:
             print(ll+1,". ",kk[ll],": ",unitname[ll])
         print("Please enter your input(1-"+str(len(kk))+"): ",end="")
         bb=int(input())
-        for iii in range (1,len(kk)):
+        uwisetopics[bb-1].append("fix")
+        for iii in range (1,len(kk)+1):
             if bb==iii:
                 print("The topics for", unitname[bb-1], "are:")
-                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])+1):
+                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])):
                     print(str(tt)+". ",uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1][tt-1])
-                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-3)+"): ",end="")
+                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-4)+"): ",end="")
                 topname=int(input())
                 if uwisetopics[bb-1][(topname+1)] in uwisetopics[bb-1][2:len(uwisetopics[bb-1])]:
                     print("You are studying "+uwisetopics[bb-1][(topname+1)]+" right now: ")        
                     print("Starting the timer!")
-                    print("Starting app monitor!")
-                    print("Starting browser tab monitor!")
+                    time.sleep(1)
+                    print("Starting the app monitor!")
+                    time.sleep(1)
+                    print("Starting the tab monitor!")
+                    time.sleep(1)
                     print("You started studying at: ",end="")
                     if int(timefake[0])>=12:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
@@ -581,9 +644,14 @@ if nga == True:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
                     tracker = threading.Thread(target=windowtracker)
                     tracker.start()
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("True")
+                    statechecker.close()
                     print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
                     aaa = input("Waiting for user input: ")
-                    if aaa:
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("False")
+                    if not aaa:
                         chiggi = False
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
