@@ -1,5 +1,6 @@
 # Syllabus Parser with Focus mode and Voice alert
 This is a personal project I made for honing my python skills further.</br>
+This project is entirely self coded by me, only hints from ChatGPT and syntax from documentations.
 <h1>
   ⭐ Key Features:
 <h1>
@@ -63,3 +64,17 @@ This is a personal project I made for honing my python skills further.</br>
   Step 7: Scroll down and toggle "Allow access to file URLs" and 'Automatically allow access on these sites" (Should be on by default).<br>
   Step 8: Open python IDLE, on the top left corner, click on "File" and then "Open" and then navigate to the folder where "Syllabus tracker ++ Ext features" is located and double click to open it in the idle. After that, click on the "Run" tab and then on "Run Module" option and Voila!.<br> NOTE: If you haven't installed IDLE, kindly install it from "https://www.python.org"
 </h3>
+<h1>
+  ⭐Future Updates
+</h1>
+<h3>
+  In the future, I plan to do the following.<br>
+</h3>
+<h5>
+  1. Add a better looking UI instead of the bland python terminal.<br>
+  2. Fix the bug in the timer which doesn't count the time correctly in some cases.<br>
+  3. Switch from file based extension toggle to Flask server.<br>
+  4. Improve the code readability.<br>
+  5. Improve the TTS voice.<br>
+  6. Add a hands free mode using voice commands.<br>
+</h5>
