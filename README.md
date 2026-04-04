@@ -50,3 +50,16 @@ This is a personal project I made for honing my python skills further.</br>
   2. chrome.tts: Used for converting text to speech for the voice alert.<br>
   3. chrome.notifications.create: Used for creating the warning notification.<br>
 </h5>
+<h1>
+  ⭐How to use:
+</h1>
+<h3>
+  Step 1: Download the zip file from this repo by clicking on the green "Code<>" button.<br>
+  Step 2: Place the three files, namely, 'background.js', 'manifest.json', 'icon1.png', into a seperate folder, and the rest of the files into another one.<br>
+  Step 3: Open your browser and go to "Chrome://extensions".<br>
+  Step 4: On the top right corner, toggle 'developer mode' to on.<br>
+  Step 5: On the top left, click on load unpacked and select the folder in which you have placed, 'background.js', 'manifest.json' and 'icon1.png'.<br>
+  Step 6: After the extension is loaded, click on details.<br>
+  Step 7: Scroll down and toggle "Allow access to file URLs" and 'Automatically allow access on these sites" (Should be on by default).<br>
+  Step 8: Open python IDLE, on the top left corner, click on "File" and then "Open" and then navigate to the folder where "Syllabus tracker ++ Ext features" is located and double click to open it in the idle. After that, click on the "Run" tab and then on "Run Module" option and Voila!.<br> NOTE: If you haven't installed IDLE, kindly install it from "https://www.python.org"
+</h3>
