@@ -1,4 +1,5 @@
-#StudyGuard: A discipline enforcement system with a syllabus Parser, focus mode, voice alert
+<h1>StudyGuard: A discipline enforcement system with a syllabus Parser, focus mode, voice alert
+</h1>
 This is a personal project I made for honing my python skills further.</br>
 Basically a productivity-focused system designed to minimize distractions and enforce disciplined study sessions.</br>
 This project is entirely self coded by me, only hints from ChatGPT and syntax from documentations.
