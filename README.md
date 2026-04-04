@@ -1,5 +1,6 @@
 # Syllabus Parser with Focus mode and Voice alert
 This is a personal project I made for honing my python skills further.</br>
+Basically a productivity-focused system designed to minimize distractions and enforce disciplined study sessions.</br>
 This project is entirely self coded by me, only hints from ChatGPT and syntax from documentations.
 <h1>
   ⭐ Key Features:
@@ -16,20 +17,20 @@ This project is entirely self coded by me, only hints from ChatGPT and syntax fr
     2. Active app monitor:
   </h2>
   <h4>
-    Disclaimer: All the data is processed on your local machine is not usage history is being sent anywhere
+    Disclaimer: All the data is processed on your local machine. No data is being collected or sent externally</br>
     The python script, along with acting as a parser, actively monitors what apps you have open on your PC and when focus mode is on, it closes them immediately.
   </h4>
   <h2>
     3. Active browser tab monitor:
   </h2>
   <h4>
-    With the help of a seperately developed browser extension, this script can even block those websites which you don't want to open during your focus/study sessions.
+    With the help of a separately developed browser extension, this script can even block those websites which you don't want to open during your focus/study sessions.
   </h4>
   <h2>
     4. Notification and Voice based alert
   </h2>
   <h4>
-    Whenever an 'indisciplined action' is noticed during your focus session, you recieve a notification, a voice alert along with the tab/app being closed
+    Whenever a distraction is detected, the system triggers a notification, a voice alert, and forcefully closes the tab/app.
   </h4>
 <h1>
   ⭐ Libraries used:
@@ -39,7 +40,7 @@ This project is entirely self coded by me, only hints from ChatGPT and syntax fr
 <h3>
 <h5>
   1. Datetime: For the timer during  focus mode.<br>
-  2. Threading: VERY important. Used for waiting for user input alongwith monitoring the apps (two blocking actions done together).<br>
+  2. Threading: VERY important. Used for waiting for user input along with monitoring the apps (two blocking actions done together).<br>
   3. Psutil: For app monitoring through process ids and names.<br>
   4. Time: For using the sleep function.<br>
 </h5>
@@ -56,7 +57,7 @@ This project is entirely self coded by me, only hints from ChatGPT and syntax fr
 </h1>
 <h3>
   Step 1: Download the zip file from this repo by clicking on the green "Code<>" button.<br>
-  Step 2: Place the three files, namely, 'background.js', 'manifest.json', 'icon1.png', into a seperate folder, and the rest of the files into another one.<br>
+  Step 2: Place the three files, namely, 'background.js', 'manifest.json', 'icon1.png', into a separate folder, and the rest of the files into another one.<br>
   Step 3: Open your browser and go to "Chrome://extensions".<br>
   Step 4: On the top right corner, toggle 'developer mode' to on.<br>
   Step 5: On the top left, click on load unpacked and select the folder in which you have placed, 'background.js', 'manifest.json' and 'icon1.png'.<br>
@@ -77,4 +78,5 @@ This project is entirely self coded by me, only hints from ChatGPT and syntax fr
   4. Improve the code readability.<br>
   5. Improve the TTS voice.<br>
   6. Add a hands free mode using voice commands.<br>
+  7. Add analytics dashboard to track distraction attempts.<br>
 </h5>
