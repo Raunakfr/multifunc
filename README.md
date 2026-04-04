@@ -30,3 +30,9 @@ This is a personal project I made for honing my python skills further.</br>
   <h4>
     Whenever an 'indisciplined action' is noticed during your focus session, you recieve a notification, a voice alert along with the tab/app being closed
   </h4>
+<h1>
+  ⭐ Libraries used:
+</h1>
+<h5>
+  1. 
+</h5>
