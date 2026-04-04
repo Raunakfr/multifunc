@@ -2,9 +2,6 @@ import datetime
 import threading
 import psutil
 import time
-import pygetwindow
-import pywinauto
-
 chiggi = True
 timereal = datetime.datetime.now().time()
 timefake = str(timereal).split(":")
