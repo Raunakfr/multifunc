@@ -33,6 +33,20 @@ This is a personal project I made for honing my python skills further.</br>
 <h1>
   ⭐ Libraries used:
 </h1>
+<h3>
+  In python script: 
+<h3>
 <h5>
-  1. 
+  1. Datetime: For the timer during  focus mode.<br>
+  2. Threading: VERY important. Used for waiting for user input alongwith monitoring the apps (two blocking actions done together).<br>
+  3. Psutil: For app monitoring through process ids and names.<br>
+  4. Time: For using the sleep function.<br>
+</h5>
+<h3>
+  In extension script:
+</h3>
+<h5>
+  1. chrome.tabs.onUpdated.addListener: Setting up listener to check for changes in tab URLs.<br>
+  2. chrome.tts: Used for converting text to speech for the voice alert.<br>
+  3. chrome.notifications.create: Used for creating the warning notification.<br>
 </h5>
