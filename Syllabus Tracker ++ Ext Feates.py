@@ -1,6 +1,11 @@
 import datetime
 import threading
 import psutil
+import time
+import pygetwindow
+import pywinauto
+
+chiggi = True
 timereal = datetime.datetime.now().time()
 timefake = str(timereal).split(":")
 if 5<=int(timefake[0])<12:
@@ -13,8 +18,7 @@ else:
     print("Hey User! It's kinda late, but alright if you want to study!!")
 blockedapps=["VALORANT-Win64-Shipping.exe", "Notepad.exe"]
 def windowtracker():
-    chiggi  = True
-    while True:
+    while chiggi == True:
         ids = psutil.pids()
         for ida in ids:
             try:
@@ -72,28 +76,37 @@ if nga == True:
             print(ll+1,". ",kk[ll],": ",unitname[ll])
         print("Please enter your input(1-"+str(len(kk))+"): ",end="")
         bb=int(input())
-        for iii in range (1,len(kk)):
+        uwisetopics[bb-1].append("fix")
+        for iii in range (1,len(kk)+1):
             if bb==iii:
                 print("The topics for", unitname[bb-1], "are:")
-                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])+1):
+                for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])):
                     print(str(tt)+". ",uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1][tt-1])
-                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-3)+"): ",end="")
+                print("Which topic do you want to study right now?\nPlease enter your input(1-"+str(len(uwisetopics[bb-1])-4)+"): ",end="")
                 topname=int(input())
                 if uwisetopics[bb-1][(topname+1)] in uwisetopics[bb-1][2:len(uwisetopics[bb-1])]:
-                    print("You are studying"+uwisetopics[bb-1][(topname+1)]+" right now: ")        
+                    print("You are studying "+uwisetopics[bb-1][(topname+1)]+" right now: ")        
                     print("Starting the timer!")
+                    time.sleep(1)
                     print("Starting the app monitor!")
+                    time.sleep(1)
+                    print("Starting the tab monitor!")
+                    time.sleep(1)
                     print("You started studying at: ",end="")
                     if int(timefake[0])>=12:
-
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" PM")
                     else:
                         print(timefake[0]+":"+timefake[1]+":"+timefake[2].split(".")[0]+" AM")
                     tracker = threading.Thread(target=windowtracker)
                     tracker.start()
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("True")
+                    statechecker.close()
                     print("Please press enter(return) as soon as you want to end your current study session, along with the timer!\n", end="")
                     aaa = input("Waiting for user input: ")
-                    if aaa:
+                    statechecker = open("state.txt", "w")
+                    statechecker.write("False")
+                    if not aaa:
                         chiggi = False
                     realtime1=datetime.datetime.now().time()
                     timefake1=str(realtime1).split(":")
@@ -141,7 +154,7 @@ if nga == True:
             print(ll+1,". ",kk[ll],": ",unitname[ll])
         print("Please enter your input(1-"+str(len(kk))+"): ",end="")
         bb=int(input())
-        for iii in range (1,len(kk)):
+        for iii in range (1,len(kk)+1):
             if bb==iii:
                 print("The topics for", unitname[bb-1], "are:")
                 for tt in range(1, len(uwisetopics[bb-1][2:len(uwisetopics[bb-1])-1])+1):
