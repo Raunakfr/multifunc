@@ -430,7 +430,7 @@ if nga == True:
                     print("Timer ended!")        
                     print("You studied for a total of: "+ str(abs(int(timefake1[0])-int(timefake[0])))+" hours "+str(abs(int(timefake1[1])-int(timefake[1])))+" minutes and "+str(abs(int(timefake1[2].split(".")[0])-int(timefake[2].split(".")[0])))+" seconds")
     elif b==6:
-       kk=0
+        kk=0
         k=[]
         kk=[]
         unitname=[]
@@ -585,7 +585,8 @@ if nga == True:
                         print(timefake1[0]+":"+timefake1[1]+":"+timefake1[2].split(".")[0]+" AM")
                     print("Timer ended!")        
                     print("You studied for a total of: "+ str(abs(int(timefake1[0])-int(timefake[0])))+" hours "+str(abs(int(timefake1[1])-int(timefake[1])))+" minutes and "+str(abs(int(timefake1[2].split(".")[0])-int(timefake[2].split(".")[0])))+" seconds")
-    kk=0
+    elif b==8:
+        kk=0
         k=[]
         kk=[]
         unitname=[]
