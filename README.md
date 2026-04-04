@@ -80,4 +80,5 @@ This project is entirely self coded by me, only hints from ChatGPT and syntax fr
   5. Improve the TTS voice.<br>
   6. Add a hands free mode using voice commands.<br>
   7. Add analytics dashboard to track distraction attempts.<br>
+  8. Add an option to mark topics as done and more.<br>
 </h5>
